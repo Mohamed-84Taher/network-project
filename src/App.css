@@ -1,0 +1,22 @@
+/* .App{
+  color:#c1d9ff;
+} */
+
+/* comment */
+.comment {
+  background-color:#ddeaff;
+  width: 100%;
+  height: 80px;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+}
+.delete {
+  color:blue;
+}
+ .delete:hover{
+  cursor: pointer;
+}
+.comment h4{
+  color:rgb(6, 6, 139);
+}
