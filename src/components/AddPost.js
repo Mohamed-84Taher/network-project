@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import {Card,Button,Form} from 'react-bootstrap'
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
@@ -6,6 +6,7 @@ import {addPost} from '../actions/postActions'
 
 function AddPost({authUser}) {
  const [text,setText]=useState("")
+ const inputRef=useRef()
 
 const dispatch=useDispatch()
 
@@ -19,11 +20,15 @@ const dispatch=useDispatch()
     setText("")
   }
  }
+ // function focus
+ const focus=()=>{
+   inputRef.current.focus()
+ }
     return (
         <Card style={{width:"70%",margin:"auto"}}>
-        <Card.Header>{`Hi ${authUser.firstName}, What's new ?`}</Card.Header>
+        <Card.Header onClick={focus} >{`Hi ${authUser.firstName}, What's new ?`}</Card.Header>
         <Card.Body>
-        <Form.Control as="textarea" value={text} onChange={e=>setText(e.target.value)} />
+        <Form.Control ref={inputRef} as="textarea" value={text} onChange={e=>setText(e.target.value)} />
         <br/>
           <Button variant="primary" style={{marginLeft:"90%"}} onClick={handleClick}>Publish</Button>
         </Card.Body>
