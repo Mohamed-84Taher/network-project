@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react';
+import React from 'react';
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import './App.css';
 import Landing from './pages/Landing';
@@ -6,14 +6,12 @@ import NavBar from './components/NavBar'
 import AddUser from './pages/AddUser'
 import Blog from './pages/Blog'
 import UsersList from './pages/UsersList';
+import useLocalStorage from './utils/useLocalStorage';
 
 function App() {
 
-    // set auth user
-  useEffect(() => {
-     const data=JSON.stringify({id:"1",firstName:"Mohamed",lastName:"Ben Arbia"})
-      localStorage.setItem("user",data)
-  }, [])
+    // Custome hooks set auth user
+  useLocalStorage("user",{id:"1",firstName:"Mohamed",lastName:"Ben Arbia"})
 
   return (
     <BrowserRouter>
