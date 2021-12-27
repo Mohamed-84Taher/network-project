@@ -1,8 +1,8 @@
-import {ADD_USER} from '../types'
+import { ADD_USER } from "../types";
 
-export const addUser=(formData)=>{
-    return {
-        type:ADD_USER,
-        payload:formData
-    }
-}
+export const addUser = formData => {
+  return {
+    type: ADD_USER,
+    payload: formData,
+  };
+};
